@@ -1,0 +1,9 @@
+﻿
+@model List<QuieroPizza.web.Models.ProductoModel>
+
+<h2>Productos</h2>
+
+@foreach (var Producto in Model)
+{
+    <p>@Producto.Id @Producto.Descripcion</p>
+}
