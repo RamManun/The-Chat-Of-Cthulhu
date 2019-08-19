@@ -21,7 +21,6 @@ namespace Cthulhu.BL
         [Required(ErrorMessage = "Ingrese un Correo")]
         public string Correo { get; set; }
         [Required(ErrorMessage = "Ingrese una Contrasenia")]
-
         public string Pass { get; set; }
     }
 }
