@@ -30,8 +30,17 @@ namespace The_Chat_Of_Cthulhu.Controllers
         [HttpPost]
         public ActionResult registrar(Usuarios usuario)
         {
-            _UsuarioBL.GuardarUsuario(usuario);
-            return RedirectToAction("Index");
+            if (ModelState.IsReadOnly)
+            {
+                if (usuario.Nickname != usuario.Nickname.Trim())
+                {
+                    ModelState.AddModelError("Nickname", "No debe contener Espacios");
+                    return View(usuario);
+                }
+                _UsuarioBL.GuardarUsuario(usuario);
+                return RedirectToAction("Index");
+            }
+            return View(usuario);
         }
     }
 }
